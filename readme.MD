@@ -16,10 +16,12 @@ A full-featured Django authentication system with secure email verification and 
 ## 🛠️ Tech Stack
 
 - Python 3.10+
-- Django 4.x
-- PostgreSQL (or SQLite for development)
-- SMTP-compatible email backend (e.g. Gmail, SendGrid)
-- Optional: Django Rest Framework, Celery, Redis
+- Django 5.2.3
+- SQLite for development
+- Gmail SMTP email backend 
+- HTML 5
+- CSS 3
+- Bootstrap 5
 
 ## 🚀 Getting Started
 
