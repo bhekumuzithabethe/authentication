@@ -1,0 +1,34 @@
+{% extends "registration/base.html" %}
+{% load crispy_forms_tags %}
+
+{% block page_title %}Login{% endblock page_title %}
+
+{% block main_content %}
+
+    <div class="row">
+        <div class="col-6">
+            <div class="card bg-light m-4">
+                <div class="card-header">Login</div>
+                <div class="card-body">
+                    <form action="{% url "dologin" %}" method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <div class="d-flex">
+                            <button type="submit" class="btn btn-primary me-4">Login</button>
+                            <a href="{% url "home" %}" class="btn btn-secondary">Cancel</a>
+                        
+                        </div>
+                        <a class="text-center" href="{% url "password_reset" %}">Fogort password</a>
+                    </form>
+                    {% for message in messages %}
+                        {% if message.tags == error %}
+                            <h6 class="text-danger">{{message}}</h6>
+                        
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock main_content %}
