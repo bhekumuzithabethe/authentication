@@ -96,12 +96,12 @@ def login_view(request):
         User = get_user_model()
         if form.is_valid():
             # Get credentials from form
-            username = request.POST['username']
+            email = request.POST['email']
             password = request.POST['password']
-            user = authenticate(username=username, password=password)
+            user = authenticate(email=email, password=password)
 
             # Check user existence and credentials
-            if User.objects.filter(username=username).exists() and User.objects.filter(password=password).exists:
+            if User.objects.filter(email=email).exists() and User.objects.filter(password=password).exists:
                 if user is not None:
                     login(request, user)
                     return redirect('dashboard')
